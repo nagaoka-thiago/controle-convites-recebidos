@@ -4,6 +4,9 @@ Este projeto tem como objetivo implementar progressivamente uma aplicação web 
 
 O frontend da aplicação foi desenvolvido com Angular e o backend foi simulado pela implementação de uma API Fake, usando o JSON Server.
 
+## Protótipo
+https://www.figma.com/file/XRqK8bgvquchdUmFc0kHUT/Untitled?type=design&node-id=0-1
+
 ## Checklist
 - [x] Criar o repositório no GitHub com a estrutura do Gitflow, ou seja, branches main e develop.
 - [x] Usar componentes de algum framework CSS (Bootstrap, Materialize ou outro).
