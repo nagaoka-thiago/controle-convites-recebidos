@@ -1,0 +1,4 @@
+.convite-lista {
+  display: flex;
+  flex-wrap: wrap;
+}
