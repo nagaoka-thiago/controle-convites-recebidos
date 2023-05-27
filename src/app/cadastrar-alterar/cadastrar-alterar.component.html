@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="card yellow-grey">
+    <div class="card-content black-text">
+      <span class="card-title">{{this.titulo}}</span>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <form class="col" action="#">
+    <div class="row">
+      <div class="input-field col">
+        <input placeholder="Placeholder" id="titulo_convite" name="titulo_convite" type="text" class="validate" [(ngModel)] = "this.tituloConvite">
+        <label for="titulo_convite">Título da Festa</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="file-field input-field col">
+        <div class="btn">
+          <span>Arquivo</span>
+          <input type="file" id="imagem_convite" name="imagem_convite">
+        </div>
+        <div class="file-path-wrapper">
+          <input class="file-path validate" name="imagem_url" type="text" [(ngModel)] = "this.imagemSrc">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col">
+        <input id="local_convite" name="local_convite" type="text" class="validate" [(ngModel)] = "this.local">
+        <label for="local_convite">Local da festa</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col">
+        <input id="data_convite" name="data_convite" type="date" class="validate" [(ngModel)] = "this.data">
+        <label for="data_convite">Data da festa</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col">
+        <input id="preco_convite" name="preco_convite" type="number" class="validate" [(ngModel)] = "this.preco">
+        <label for="preco_convite">Preço da festa</label>
+      </div>
+    </div>
+    <app-adicionar></app-adicionar>
+  </form>
+</div>

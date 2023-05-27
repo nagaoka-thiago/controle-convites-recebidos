@@ -1,0 +1,23 @@
+.botao-container {
+  display: flex;
+  justify-content: end;
+
+  margin-bottom: 16px;
+}
+
+.botao {
+  background-color: #EFEEEE;
+  outline: none;
+  border: 0;
+  width: 160px;
+  height: 80px;
+  font-size: 24px;
+}
+
+.botao:hover {
+  background-color: #D9D9D9;
+}
+
+.botao:active {
+  background-color: #989696;
+}

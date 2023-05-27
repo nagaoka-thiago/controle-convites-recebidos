@@ -1,8 +1,8 @@
 <div class="convite-conteudo">
-  <img class="convite-imagem" src="https://mid.curitiba.pr.gov.br/2019/capa/00283591.jpg"/>
+  <img class="convite-imagem" [src]="this.imagemSrc"/>
   <div class="convite-dados">
-    <p class="convite-dado">Titulo 1</p>
-    <p class="convite-dado">Data 1</p>
-    <p class="convite-dado">Preço 1</p>
+    <p class="convite-dado">{{this.titulo}}</p>
+    <p class="convite-dado">{{this.data.toLocaleDateString()}}</p>
+    <p class="convite-dado">{{this.preco}}</p>
   </div>
 </div>

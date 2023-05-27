@@ -7,6 +7,9 @@ import { HeaderComponent } from './header/header.component';
 import { SearchTextfieldComponent } from './search-textfield/search-textfield.component';
 import { ListaConvitesComponent } from './lista-convites/lista-convites.component';
 import { ConviteComponent } from './convite/convite.component';
+import { AdicionarComponent } from './adicionar/adicionar.component';
+import { CadastrarAlterarComponent } from './cadastrar-alterar/cadastrar-alterar.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,10 +18,13 @@ import { ConviteComponent } from './convite/convite.component';
     SearchTextfieldComponent,
     ListaConvitesComponent,
     ConviteComponent,
+    AdicionarComponent,
+    CadastrarAlterarComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
