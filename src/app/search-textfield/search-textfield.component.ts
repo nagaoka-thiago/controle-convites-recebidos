@@ -6,5 +6,4 @@ import { Component } from '@angular/core';
   styleUrls: ['./search-textfield.component.css']
 })
 export class SearchTextfieldComponent {
-
 }

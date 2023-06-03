@@ -6,6 +6,7 @@ import { CadastrarAlterarComponent } from './cadastrar-alterar/cadastrar-alterar
 const routes: Routes = [
   {path: 'inicio', component: InicioComponent},
   {path: 'cadastrar', component: CadastrarAlterarComponent},
+  {path: 'modificar', component: CadastrarAlterarComponent},
   {path: '', redirectTo: '/inicio', pathMatch: 'full'},
 ];
 

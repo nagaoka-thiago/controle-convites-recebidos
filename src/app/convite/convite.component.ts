@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-convite',
@@ -8,6 +8,12 @@ import { Component, Input } from '@angular/core';
 export class ConviteComponent {
   @Input() imagemSrc!: String;
   @Input() titulo!: String;
-  @Input() data!: String;
+  @Input() data!: Date;
   @Input() preco!: String;
+  @Input() local!: String;
+  @Output() pressionado = new EventEmitter<void>();
+
+  clicar(): void {
+    this.pressionado.emit();
+  }
 }

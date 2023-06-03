@@ -1,6 +1,11 @@
 .convite-conteudo {
   display: flex;
   margin: 8px 16px;
+  width: 40%;
+}
+.convite-conteudo:hover {
+  border: 1px solid black;
+  cursor: pointer;
 }
 .convite-imagem{
   width: 30%;

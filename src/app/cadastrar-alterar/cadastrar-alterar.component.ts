@@ -1,25 +1,42 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Convite } from '../modelos/convite';
 
 @Component({
   selector: 'app-cadastrar-alterar',
   templateUrl: './cadastrar-alterar.component.html',
   styleUrls: ['./cadastrar-alterar.component.css']
 })
-export class CadastrarAlterarComponent {
-  titulo: String;
+export class CadastrarAlterarComponent implements OnInit {
+  titulo!: String;
 
-  tituloConvite: String;
-  imagemSrc: String;
-  local: String;
-  data: Date;
-  preco: Number;
-  constructor() {
-    this.titulo = "Cadastrar convite";
+  tituloConvite!: String;
+  imagemSrc!: String;
+  local!: String;
+  data!: Date;
+  preco!: String;
+  constructor(private router: ActivatedRoute, private route: Router) {
+  }
+  ngOnInit(): void {
+    this.router.params.subscribe(params => {
+      if(params['modificar'] == 'true') {
+        this.titulo = 'Modificar convite';
+        this.imagemSrc = params['imagemSrc'];
+        this.tituloConvite = params['titulo'];
+        this.data = params['data'];
+        this.preco = params['preco'];
+        this.local = params['local'];
+      }
+      else {
+        this.titulo = 'Cadastrar convite';
+      }
+    });
+  }
+  cadastrar(): void {
+    this.route.navigate(['/inicio']);
+  }
 
-    this.tituloConvite = "Título 1";
-    this.imagemSrc = "C:\Users\thiag\OneDrive\Documentos\Scanned Documents\Imagem (3).jpg";
-    this.local = "Local 1";
-    this.data = new Date();
-    this.preco = 30.70;
+  voltar(): void {
+    this.route.navigate(['/inicio']);
   }
 }
