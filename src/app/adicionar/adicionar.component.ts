@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-adicionar',
@@ -6,7 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./adicionar.component.css']
 })
 export class AdicionarComponent {
-  clicado(): void {
-    console.log("Componente adicionar foi clicado!");
-  }
+@Output() pressionado = new EventEmitter<void>();
+
+pressionar(): void {
+  this.pressionado.emit();
+}
 }

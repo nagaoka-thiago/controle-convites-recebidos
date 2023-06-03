@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Convite } from '../modelos/convite';
 
 @Component({
   selector: 'app-lista-convites',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./lista-convites.component.css']
 })
 export class ListaConvitesComponent {
-
+  @Input() convites!: Array<Convite>;
 }
