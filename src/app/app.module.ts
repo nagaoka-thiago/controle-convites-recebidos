@@ -10,6 +10,7 @@ import { ConviteComponent } from './convite/convite.component';
 import { AdicionarComponent } from './adicionar/adicionar.component';
 import { CadastrarAlterarComponent } from './cadastrar-alterar/cadastrar-alterar.component';
 import { FormsModule } from '@angular/forms';
+import { InicioComponent } from './inicio/inicio.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { FormsModule } from '@angular/forms';
     ConviteComponent,
     AdicionarComponent,
     CadastrarAlterarComponent,
+    InicioComponent,
   ],
   imports: [
     BrowserModule,
