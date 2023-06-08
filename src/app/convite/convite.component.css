@@ -1,3 +1,6 @@
+.lado {
+  display: flex;
+}
 .convite-conteudo {
   display: flex;
   margin: 8px 16px;

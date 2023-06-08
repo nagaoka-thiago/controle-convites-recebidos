@@ -9,7 +9,9 @@ import { Convite } from '../modelos/convite';
 })
 export class CadastrarAlterarComponent implements OnInit {
   titulo!: String;
+  modificar!: Boolean;
 
+  id!: Number;
   tituloConvite!: String;
   imagemSrc!: String;
   local!: String;
@@ -19,8 +21,10 @@ export class CadastrarAlterarComponent implements OnInit {
   }
   ngOnInit(): void {
     this.router.params.subscribe(params => {
-      if(params['modificar'] == 'true') {
+      this.modificar = params['modificar'] == "true";
+      if(this.modificar) {
         this.titulo = 'Modificar convite';
+        this.id = params['id'];
         this.imagemSrc = params['imagemSrc'];
         this.tituloConvite = params['titulo'];
         this.data = params['data'];
@@ -33,6 +37,23 @@ export class CadastrarAlterarComponent implements OnInit {
     });
   }
   cadastrar(): void {
+    if(this.modificar) {
+      let convite: Convite = new Convite(this.id, this.imagemSrc, this.tituloConvite, this.data, this.preco, this.local);
+      let convites: Convite[] = JSON.parse(localStorage.getItem('convites')!);
+      for(let i = 0; i < convites.length; i++) {
+        if(convites[i].id == convite.id) {
+          convites[i] = convite;
+          break;
+        }
+      }
+      localStorage.setItem('convites', JSON.stringify(convites));
+    }
+    else {
+      let convites: Convite[] = JSON.parse(localStorage.getItem('convites')!);
+      let convite: Convite = new Convite(convites.length + 1, this.imagemSrc, this.tituloConvite, this.data, this.preco, this.local);
+      convites.push(convite);
+      localStorage.setItem('convites', JSON.stringify(convites));
+    }
     this.route.navigate(['/inicio']);
   }
 

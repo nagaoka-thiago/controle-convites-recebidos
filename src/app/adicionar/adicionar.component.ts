@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-adicionar',
@@ -7,6 +7,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class AdicionarComponent {
 @Output() pressionado = new EventEmitter<void>();
+@Input() desativado!: Boolean;
 
 pressionar(): void {
   this.pressionado.emit();
