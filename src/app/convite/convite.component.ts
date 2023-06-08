@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Convite } from '../modelos/convite';
 
 @Component({
@@ -6,17 +6,16 @@ import { Convite } from '../modelos/convite';
   templateUrl: './convite.component.html',
   styleUrls: ['./convite.component.css']
 })
-export class ConviteComponent implements OnInit{
+export class ConviteComponent{
   @Input() convite!: Convite;
   @Output() pressionado = new EventEmitter<void>();
+  @Output() deletar = new EventEmitter<Convite>();
 
-  imagemSrc!: String;
   clicar(): void {
     this.pressionado.emit();
   }
 
-  ngOnInit(): void {
-    console.log(this.convite);
-      this.imagemSrc = this.convite.getImagemSrc();
+  clicouDeletar(convite: Convite): void {
+    this.deletar.emit(convite);
   }
 }

@@ -41,8 +41,9 @@ export class CadastrarAlterarComponent implements OnInit {
       let convite: Convite = new Convite(this.id, this.imagemSrc, this.tituloConvite, this.data, this.preco, this.local);
       let convites: Convite[] = JSON.parse(localStorage.getItem('convites')!);
       for(let i = 0; i < convites.length; i++) {
-        if(convites[i].getId() == convite.getId()) {
+        if(convites[i].id == convite.id) {
           convites[i] = convite;
+          break;
         }
       }
       localStorage.setItem('convites', JSON.stringify(convites));

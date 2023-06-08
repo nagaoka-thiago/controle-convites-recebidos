@@ -1,5 +1,6 @@
 <div class="convite-lista">
   <app-convite *ngFor="let convite of convites"
               [convite] = "convite"
-              (pressionado)="this.modificar(convite)"></app-convite>
+              (pressionado)="this.modificar(convite)"
+              (deletar)="this.deletar(convite)"></app-convite>
 </div>
