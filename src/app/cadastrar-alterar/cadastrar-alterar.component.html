@@ -6,26 +6,35 @@
   </div>
 </div>
 <div class="row">
-  <form action="#">
+  <form action="#" #form="ngForm">
     <div class="row">
       <div class="input-field">
-        <input id="titulo_convite" name="titulo_convite" type="text" class="validate" [(ngModel)] = "this.tituloConvite">
+        <input id="titulo_convite" name="titulo_convite" type="text" class="validate" pattern="^[A-Z][a-zA-Z\s]*$" [(ngModel)] = "this.tituloConvite" #tituloC="ngModel">
         <label for="titulo_convite">Título da Festa</label>
+      </div>
+      <div class="red-text" [hidden]="tituloC.valid || tituloC.untouched">
+        Por favor, informar título válido, onde a primeira palavra começa maiúscula.
       </div>
     </div>
     <div class="row">
       <div class="input-field">
-        <input id="imagem_convite" name="imagem_convite" type="text" class="validate" [(ngModel)] = "this.imagemSrc">
+        <input id="imagem_convite" name="imagem_convite" type="text" class="validate" [(ngModel)] = "this.imagemSrc" pattern="^(https?|ftp):\/\/[^\s/$.?#].[^\s]*\.(jpg|jpeg|png|gif|bmp)$" #imagemS="ngModel">
         <label for="imagem_convite">URL da imagem do convite</label>
       </div>
-      <div>
+      <div class="red-text" [hidden]="imagemS.valid || imagemS.untouched">
+        Por favor, informar URL válido de imagem.
+      </div>
+      <div [hidden]="!imagemS.valid && !imagemS.untouched">
         <img [src] = "this.imagemSrc">
       </div>
     </div>
     <div class="row">
       <div class="input-field col">
-        <input id="local_convite" name="local_convite" type="text" class="validate" [(ngModel)] = "this.local">
+        <input id="local_convite" name="local_convite" type="text" class="validate" [(ngModel)] = "this.local" pattern="^[A-Z][a-zA-Z\s]*$" #localC="ngModel">
         <label for="local_convite">Local da festa</label>
+      </div>
+      <div class="red-text" [hidden]="localC.valid || localC.untouched">
+        Por favor, informar local válido, onde a primeira palavra começa maiúscula.
       </div>
     </div>
     <div class="row">
@@ -36,11 +45,14 @@
     </div>
     <div class="row">
       <div class="input-field col">
-        <input id="preco_convite" name="preco_convite" type="number" class="validate" [(ngModel)] = "this.preco">
+        <input id="preco_convite" name="preco_convite" type="number" class="validate" [(ngModel)] = "this.preco" pattern="^-?\d+(\.\d+)?$" #precoC="ngModel">
         <label for="preco_convite">Preço da festa</label>
       </div>
+      <div class="red-text" [hidden]="precoC.valid || precoC.untouched">
+        Por favor, informar preço válido.
+      </div>
     </div>
-    <app-adicionar (pressionado)="this.cadastrar()"></app-adicionar>
+    <app-adicionar (pressionado)="this.cadastrar()" [desativado]="!form.valid"></app-adicionar>
     <button class="btn red" (click) = "this.voltar()">Voltar</button>
   </form>
 </div>

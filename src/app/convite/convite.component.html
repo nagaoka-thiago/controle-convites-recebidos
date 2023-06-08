@@ -1,9 +1,9 @@
 <div class="convite-conteudo" (click)="this.clicar()">
   <img class="convite-imagem" [src]="this.imagemSrc"/>
-  <div class="convite-dados">
+  <!-- <div class="convite-dados">
     <p class="convite-dado">{{this.titulo}}</p>
-    <p class="convite-dado">{{this.data.toLocaleDateString('pt-BR')}}</p>
+    <p class="convite-dado">{{this.data ? this.data.toLocaleDateString('pt-BR') : ''}}</p>
     <p class="convite-dado">{{this.preco}}</p>
     <p class="convite-dado">{{this.local}}</p>
-  </div>
+  </div> -->
 </div>

@@ -1,20 +1,5 @@
 <div class="convite-lista">
-  <app-convite [data] = "this.convites[0].getData()"
-              [imagemSrc]="this.convites[0].getImagemSrc()"
-              [preco]="this.convites[0].getPreco()"
-              [titulo]="this.convites[0].getTitulo()"
-              [local]="this.convites[0].getLocal()"
-              (pressionado)="this.modificar(this.convites[0])"></app-convite>
-  <app-convite [data] = "this.convites[1].getData()"
-              [imagemSrc]="this.convites[1].getImagemSrc()"
-              [preco]="this.convites[1].getPreco()"
-              [titulo]="this.convites[1].getTitulo()"
-              [local]="this.convites[1].getLocal()"
-              (pressionado)="this.modificar(this.convites[1])"></app-convite>
-  <app-convite [data] = "this.convites[2].getData()"
-              [imagemSrc]="this.convites[2].getImagemSrc()"
-              [preco]="this.convites[2].getPreco()"
-              [titulo]="this.convites[2].getTitulo()"
-              [local]="this.convites[2].getLocal()"
-              (pressionado)="this.modificar(this.convites[2])"></app-convite>
+  <app-convite *ngFor="let convite of convites"
+              [convite] = "convite"
+              (pressionado)="this.modificar(convite)"></app-convite>
 </div>

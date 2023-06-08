@@ -13,6 +13,6 @@ export class ListaConvitesComponent {
   constructor(private routes: ActivatedRoute, private router: Router) {}
 
   modificar(convite: Convite): void {
-    this.router.navigate(['/modificar', {modificar: true, imagemSrc: convite.getImagemSrc(), titulo: convite.getTitulo(), data: convite.getData(), preco: convite.getPreco(), local: convite.getLocal()}]);
+    this.router.navigate(['/modificar', {modificar: true, id: convite.getId(), imagemSrc: convite.getImagemSrc(), titulo: convite.getTitulo(), data: convite.getData(), preco: convite.getPreco(), local: convite.getLocal()}]);
   }
 }
