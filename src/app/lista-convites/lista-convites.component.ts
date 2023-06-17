@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Convite } from '../modelos/convite';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ApiRequestServiceService } from '../api-request-service.service';
 
 @Component({
   selector: 'app-lista-convites',
@@ -10,16 +11,14 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ListaConvitesComponent {
   @Input() convites!: Array<Convite>;
 
-  constructor(private routes: ActivatedRoute, private router: Router) {}
+  constructor(private routes: ActivatedRoute, private router: Router, private apiService: ApiRequestServiceService) {}
 
   modificar(convite: Convite): void {
-    this.router.navigate(['/modificar', {modificar: true, id: convite.id, imagemSrc: convite.imagemSrc, titulo: convite.titulo, data: convite.data, preco: convite.preco, local: convite.local}]);
+    this.router.navigate(['/modificar', {modificar: true, id: convite.id,}]);
   }
 
   deletar(convite: Convite) : void {
-    let convites: Convite[] = JSON.parse(localStorage.getItem('convites')!);
-    convites = convites.filter((c) => c.id != convite.id);
-    localStorage.setItem('convites', JSON.stringify(convites));
+    this.apiService.deletar(convite.id as number);
     window.location.reload();
   }
 }

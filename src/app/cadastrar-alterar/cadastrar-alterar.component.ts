@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Convite } from '../modelos/convite';
+import { ApiRequestServiceService } from '../api-request-service.service';
 
 @Component({
   selector: 'app-cadastrar-alterar',
@@ -17,19 +18,26 @@ export class CadastrarAlterarComponent implements OnInit {
   local!: String;
   data!: Date;
   preco!: String;
-  constructor(private router: ActivatedRoute, private route: Router) {
+  constructor(private router: ActivatedRoute, private route: Router, private apiService: ApiRequestServiceService) {
   }
   ngOnInit(): void {
     this.router.params.subscribe(params => {
       this.modificar = params['modificar'] == "true";
       if(this.modificar) {
         this.titulo = 'Modificar convite';
-        this.id = params['id'];
-        this.imagemSrc = params['imagemSrc'];
-        this.tituloConvite = params['titulo'];
-        this.data = params['data'];
-        this.preco = params['preco'];
-        this.local = params['local'];
+
+        this.apiService.pegarConvite(params['id']).then(response => {
+          if(response != undefined) {
+            this.id = (response as Convite).id;
+            this.imagemSrc = (response as Convite).imagemSrc;
+            this.tituloConvite = (response as Convite).titulo;
+            this.data = (response as Convite).data;
+            this.preco = (response as Convite).preco;
+            this.local = (response as Convite).local;
+          }
+        });
+
+
       }
       else {
         this.titulo = 'Cadastrar convite';
@@ -39,20 +47,11 @@ export class CadastrarAlterarComponent implements OnInit {
   cadastrar(): void {
     if(this.modificar) {
       let convite: Convite = new Convite(this.id, this.imagemSrc, this.tituloConvite, this.data, this.preco, this.local);
-      let convites: Convite[] = JSON.parse(localStorage.getItem('convites')!);
-      for(let i = 0; i < convites.length; i++) {
-        if(convites[i].id == convite.id) {
-          convites[i] = convite;
-          break;
-        }
-      }
-      localStorage.setItem('convites', JSON.stringify(convites));
+      this.apiService.modificar(convite);
     }
     else {
-      let convites: Convite[] = JSON.parse(localStorage.getItem('convites')!);
-      let convite: Convite = new Convite(convites.length + 1, this.imagemSrc, this.tituloConvite, this.data, this.preco, this.local);
-      convites.push(convite);
-      localStorage.setItem('convites', JSON.stringify(convites));
+      let convite: Convite = new Convite(0, this.imagemSrc, this.tituloConvite, this.data, this.preco, this.local);
+      this.apiService.cadastrar(convite);
     }
     this.route.navigate(['/inicio']);
   }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Convite } from '../modelos/convite';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ApiRequestServiceService } from '../api-request-service.service';
 
 @Component({
   selector: 'app-inicio',
@@ -8,23 +9,31 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./inicio.component.css']
 })
 export class InicioComponent implements OnInit{
-  convites!: Array<Convite>;
+  convites!: Convite[];
 
-  constructor(private route: ActivatedRoute, private router: Router){
-    this.convites = [];
+  constructor(private route: ActivatedRoute, private router: Router, private apiService: ApiRequestServiceService){
+    this.apiService.pegarConvites().then(response => {
+      if(response != undefined) {
+        this.convites = response as Convite[];
+      }
+    });
   }
 
   ngOnInit(): void {
-    if(localStorage.getItem('convites') == null) {
-      localStorage.setItem('convites', JSON.stringify([]));
-      this.convites = [];
-    }
+    this.apiService.pegarConvites().then(response => {
+      if(response != undefined) {
+        this.convites = response as Convite[];
+      }
+    });
 
-    this.convites = JSON.parse(localStorage.getItem('convites')!);
   }
 
   valorMudado(novoValor: String): void {
-    this.convites = JSON.parse(localStorage.getItem('convites')!);
+    this.apiService.pegarConvites().then(response => {
+      if(response != undefined) {
+        this.convites = response as Convite[];
+      }
+    });
     if(novoValor != null && novoValor != '') {
       this.convites = this.convites?.filter(convite => convite.titulo.toLowerCase().search(novoValor.toLowerCase()) != -1);
     }
