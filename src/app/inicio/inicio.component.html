@@ -1,0 +1,4 @@
+<app-header></app-header>
+<app-search-textfield (digitado)="this.valorMudado($event)"></app-search-textfield>
+<app-lista-convites [convites]="this.convites"></app-lista-convites>
+<app-adicionar (pressionado)="this.cadastrar()"></app-adicionar>

@@ -1,0 +1,14 @@
+<div class="lado">
+<div class="convite-conteudo" (click)="this.clicar()">
+  <img class="convite-imagem" [src]="this.convite.imagemSrc"/>
+  <div class="convite-dados">
+    <p class="convite-dado">{{this.convite.titulo}}</p>
+    <p class="convite-dado">{{this.convite.data | date: 'shortDate'}}</p>
+    <p class="convite-dado">{{this.convite.preco.toString() | currency: 'BRL'}}</p>
+    <p class="convite-dado">{{this.convite.local}}</p>
+  </div>
+</div>
+<div>
+  <button class="btn-floating btn-large waves-effect waves-light red" type="button" (click)="this.clicouDeletar(this.convite)"><i class="material-icons">remove</i></button>
+</div>
+</div>

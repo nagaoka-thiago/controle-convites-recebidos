@@ -1,0 +1,24 @@
+.lado {
+  display: flex;
+}
+.convite-conteudo {
+  display: flex;
+  margin: 8px 16px;
+  width: 40%;
+}
+.convite-conteudo:hover {
+  border: 1px solid black;
+  cursor: pointer;
+}
+.convite-imagem{
+  width: 30%;
+  margin: 0px 16px;
+}
+.convite-dados {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.convite-dado {
+  font-size: 18px;
+}
