@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-search-textfield',
@@ -6,4 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./search-textfield.component.css']
 })
 export class SearchTextfieldComponent {
+  @Output() digitado = new EventEmitter<String>();
+
+  onDigitado(evento: any) {
+    if(evento instanceof EventTarget) {
+      this.digitado.emit((evento as HTMLInputElement).value);
+    }
+  }
 }
