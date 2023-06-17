@@ -1,0 +1,20 @@
+{
+  "convites": [
+    {
+      "id": 1,
+      "data": "2023-06-19",
+      "imagemSrc": "https://ichef.bbci.co.uk/news/640/cpsprodpb/42C7/production/_113359071_festagettyimages-920382040.jpg",
+      "preco": 45.9,
+      "titulo": "Titulo um",
+      "local": "Local tres"
+    },
+    {
+      "id": 2,
+      "data": "2023-07-05",
+      "imagemSrc": "https://img.freepik.com/fotos-gratis/publico-animado-assistindo-fogos-de-artificio-de-confete-e-se-divertindo-no-festival-de-musica-a-noite-copiar-espaco_637285-559.jpg",
+      "preco": 23.67,
+      "titulo": "Titulo dois",
+      "local": "Local dois"
+    }
+  ]
+}
