@@ -32,11 +32,11 @@ export class InicioComponent implements OnInit{
     this.apiService.pegarConvites().then(response => {
       if(response != undefined) {
         this.convites = response as Convite[];
+        if(novoValor != null && novoValor != '') {
+          this.convites = this.convites?.filter(convite => convite.titulo.toLowerCase().search(novoValor.toLowerCase()) != -1);
+        }
       }
     });
-    if(novoValor != null && novoValor != '') {
-      this.convites = this.convites?.filter(convite => convite.titulo.toLowerCase().search(novoValor.toLowerCase()) != -1);
-    }
   }
 
   cadastrar(): void {
