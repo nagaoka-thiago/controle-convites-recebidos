@@ -9,7 +9,7 @@
   <form action="#" #form="ngForm">
     <div class="row">
       <div class="input-field">
-        <input id="titulo_convite" name="titulo_convite" type="text" class="validate" pattern="^[A-Z][a-zA-Z\s]*$" [(ngModel)] = "this.tituloConvite" #tituloC="ngModel">
+        <input id="titulo_convite" name="titulo_convite" type="text" class="validate" pattern="^[A-Z][a-zA-Z\s]*$" [(ngModel)] = "this.tituloConvite" #tituloC="ngModel" required>
         <label for="titulo_convite">Título da Festa</label>
       </div>
       <div class="red-text" [hidden]="tituloC.valid || tituloC.untouched">
@@ -18,7 +18,7 @@
     </div>
     <div class="row">
       <div class="input-field">
-        <input id="imagem_convite" name="imagem_convite" type="text" class="validate" [(ngModel)] = "this.imagemSrc" pattern="^(https?|ftp):\/\/[^\s/$.?#].[^\s]*\.(jpg|jpeg|png|gif|bmp)$" #imagemS="ngModel">
+        <input id="imagem_convite" name="imagem_convite" type="text" class="validate" [(ngModel)] = "this.imagemSrc" pattern="^(https?|ftp):\/\/[^\s/$.?#].[^\s]*\.(jpg|jpeg|png|gif|bmp)$" #imagemS="ngModel" required>
         <label for="imagem_convite">URL da imagem do convite</label>
       </div>
       <div class="red-text" [hidden]="imagemS.valid || imagemS.untouched">
@@ -30,7 +30,7 @@
     </div>
     <div class="row">
       <div class="input-field col">
-        <input id="local_convite" name="local_convite" type="text" class="validate" [(ngModel)] = "this.local" pattern="^[A-Z][a-zA-Z\s]*$" #localC="ngModel">
+        <input id="local_convite" name="local_convite" type="text" class="validate" [(ngModel)] = "this.local" pattern="^[A-Z][a-zA-Z\s]*$" #localC="ngModel" required>
         <label for="local_convite">Local da festa</label>
       </div>
       <div class="red-text" [hidden]="localC.valid || localC.untouched">
@@ -39,13 +39,13 @@
     </div>
     <div class="row">
       <div class="input-field col">
-        <input id="data_convite" name="data_convite" type="date" class="validate" [ngModel] = "this.data | date:'y-MM-dd'" (ngModelChange)="this.data = $event">
+        <input id="data_convite" name="data_convite" type="date" class="validate" [ngModel] = "this.data | date:'y-MM-dd'" (ngModelChange)="this.data = $event" required>
         <label for="data_convite">Data da festa</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col">
-        <input id="preco_convite" name="preco_convite" type="number" class="validate" [(ngModel)] = "this.preco" pattern="^-?\d+(\.\d+)?$" #precoC="ngModel">
+        <input id="preco_convite" name="preco_convite" type="number" class="validate" [(ngModel)] = "this.preco" pattern="^-?\d+(\.\d+)?$" #precoC="ngModel" required>
         <label for="preco_convite">Preço da festa</label>
       </div>
       <div class="red-text" [hidden]="precoC.valid || precoC.untouched">
