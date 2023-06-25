@@ -4,6 +4,9 @@ Este projeto tem como objetivo implementar progressivamente uma aplicação web 
 
 O frontend da aplicação foi desenvolvido com Angular e o backend foi simulado pela implementação de uma API Fake, usando o JSON Server.
 
+## Endereço de Deploy - GitHub Pages
+https://nagaoka-thiago.github.io/controle-convites-recebidos/
+
 ## Protótipo
 https://www.figma.com/file/XRqK8bgvquchdUmFc0kHUT/Untitled?type=design&node-id=0-1
 
